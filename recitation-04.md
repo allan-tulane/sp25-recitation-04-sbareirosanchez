@@ -36,7 +36,7 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 4. Assume that a word `w` appears `n` times. What is the **work** and **span** of `word_count_reduce` for this word, assuming a parallel implementation of the `reduce` function?
 
-**Work=$O(n)$, Span=O(log2 n)**
+**Work=O(n), Span=O(log2 n)**
 
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
@@ -52,7 +52,7 @@ for doc in docs:
 
 What is the problem that prevents us from easily parallelizing this solution?
 
-**Enter answer here**
+**Parallelizing this solution is challenging because when multiple processes update the same work in the shared dictionary at the same time, it can lead to conflicts or incorrect results.**
 
 
 ## Part 2: Sentiment analysis
