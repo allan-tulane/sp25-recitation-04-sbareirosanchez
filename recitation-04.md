@@ -36,7 +36,7 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 4. Assume that a word `w` appears `n` times. What is the **work** and **span** of `word_count_reduce` for this word, assuming a parallel implementation of the `reduce` function?
 
-**Enter answer here**
+**Work=$O(n)$, Span=$O(log_2 n)$**
 
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
