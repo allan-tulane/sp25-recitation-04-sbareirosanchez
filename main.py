@@ -37,6 +37,7 @@ def word_count_map(doc):
     [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
     """
     ###TODO
+    return list(map(lambda x:(x,1), doc.split()))
     
     
 
@@ -54,6 +55,7 @@ def word_count_reduce(group):
     NOTE: you should use call the `reduce` function here.
     """
     ###TODO
+    return (group[0], reduce(lambda x,y: x+y, 0, group[1])) 
     
     
 
@@ -123,4 +125,29 @@ def sentiment_map(doc,
     [('negative', 1), ('negative', 1)]
     """
     ###TODO
+
+    tokens=doc.split()
+    list=[]
+    for token in tokens:
+        if token in pos_terms:
+            list.append(("positive", 1))
+        elif token in neg_terms:
+            list.append(("negative",1))
+
+    return list
+
+    # testing 
+
+print(word_count_map('i am sam i am'))
+print(word_count_reduce(['i',[1,1,1]]))
+print(run_map_reduce(word_count_map, word_count_reduce, ['i am sam', 'sam is ham']))
+print(sentiment_map('it was a terrible waste of time'))
+docs = [
+        'it was not great but not terrible',
+        'thou art a boul a plague-score or embossed carbuncle in my corrupted blood',
+        'it was a sockdolager of a good time'
+       ]
+result = run_map_reduce(sentiment_map, word_count_reduce, docs)
+print (result)
+                
 
